@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="TOP_LEFT" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nba_data_structure.controller.DashboardController">
+    <!-- Define column constraints if needed -->
+    <columnConstraints>
+        <ColumnConstraints percentWidth="30.0" />
+        <ColumnConstraints percentWidth="10.0" />
+        <ColumnConstraints percentWidth="20.0" />
+        <ColumnConstraints percentWidth="20.0" />
+        <ColumnConstraints percentWidth="20.0" />
+    </columnConstraints>
+    <!-- Define row constraints if needed -->
+    <rowConstraints>
+        <RowConstraints percentHeight="10.0" />
+        <RowConstraints percentHeight="30.0" />
+        <RowConstraints percentHeight="10.0" />
+        <RowConstraints percentHeight="50.0" />
+        <RowConstraints />
+    </rowConstraints>
+
+    <!-- Labels -->
+    <Label alignment="CENTER" text="Players" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" />
+    <Label alignment="CENTER" text="Team Roster" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+    <Label alignment="CENTER" text="Queue" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+    <Label alignment="CENTER" text="Injury Reserve" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+
+    <!-- Players TableView -->
+    <TableView fx:id="playerTable" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.rowSpan="1">
+        <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="positionColumn" prefWidth="75.0" text="Position" />
+            <TableColumn fx:id="pointsColumn" prefWidth="75.0" text="Points" />
+            <TableColumn fx:id="actionColumn" prefWidth="296.00001525878906" text="Action" />
+        </columns>
+    </TableView>
+
+    <!-- Team TableView -->
+    <TableView fx:id="teamTable" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <columns>
+            <TableColumn fx:id="teamNameColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="teamPositionColumn" prefWidth="75.0" text="Position" />
+            <TableColumn fx:id="teamPointsColumn" prefWidth="75.0" text="Points" />
+            <TableColumn fx:id="teamActionColumn" prefWidth="265.0000762939453" text="Actions" />
+        </columns>
+    </TableView>
+
+
+    <TableView fx:id="extensionTable" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="1">
+        <columns>
+            <TableColumn fx:id="extensionNameColumn" prefWidth="201.40014040470123" text="Name" />
+        </columns>
+    </TableView>
+
+    <!-- TextField and Button -->
+    <TextField fx:id="textField" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+
+    <!-- Injury Reserve TableView -->
+    <TableView fx:id="injuryReserveTable" prefHeight="388.0" prefWidth="770.0" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.rowSpan="1">
+        <columns>
+            <TableColumn fx:id="injuryResNameColumn" prefWidth="150.0" text="Name" />
+            <TableColumn fx:id="injuryResInjuryColumn" prefWidth="150.0" text="Injury" />
+            <TableColumn fx:id="injuryResStatusColumn" prefWidth="150.0" text="Status" />
+        </columns>
+    </TableView>
+
+    <!-- TextArea -->
+    <TextArea fx:id="textArea" prefHeight="640.0" prefWidth="1357.0" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+   <Button mnemonicParsing="false" onAction="#composite" prefHeight="26.0" prefWidth="317.0" text="                                                                      rank" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+   <Button mnemonicParsing="false" onAction="#dequeue" prefHeight="26.0" prefWidth="247.0" text="                                                      dequeue" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+
+    <!-- Button for Injury Reserve -->
+    <Button alignment="CENTER" contentDisplay="CENTER" onAction="#actionForInjuryReserve" prefHeight="26.0" prefWidth="176.0" text="           remove injured" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <Button onAction="#dynamicSearch" GridPane.columnIndex="3" GridPane.rowIndex="2">
+        <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../asset/search.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+   <Button mnemonicParsing="false" onAction="#saveEverything" prefHeight="26.0" prefWidth="89.0" text="Save" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+   <Button   mnemonicParsing="false"  onAction="#switchG" text="Go To Graph" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+</GridPane>
